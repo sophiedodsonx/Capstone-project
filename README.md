@@ -10,63 +10,84 @@ Shirley heard about Amazon Web Services (AWS), and initially moved her website a
 
 Shirley approached your team to make sure that her current design follows best practices. She wants to make sure that she has a robust and secure website. One of your colleagues started the process of migrating the site to a more secure implementation, but they were reassigned to another project. Your tasks are to complete the implementation, make sure that the website is secure, and confirm that the website returns data from the query page.
 
-Solution requirements
+Solution requirements:
+
 •	Provide secure hosting of the MySQL database
 
 •	Provide secure access for an administrative user
 
 •	Provide anonymous access to web users
+
 •	Run the website on a t2.micro EC2 instance, and provide Secure Shell (SSH) access to administrators
+
 •	Provide high availability to the website through a load balancer
+
 •	Store database connection information in the AWS Systems Manager Parameter Store
+
 •	Provide automatic scaling that uses a launch template
+
 
 
 
 Existing resources:
 
 Example VPC - 
+
 	Public Subnet 1 10.0.0.0/24
+	
 	Public subnet 2 10.0.1.0/24
+	
 	Private Subnet 1 10.0.2.0/23
+	
 	Private Subnet 2 10.0.4.0/23
+	
 
 Example IGW
 
-Security groups:
-Bastion-SG – enable access to App
-Example-DB – enable access to MySQL
-Inventory App – Enable access to App
-ALB SG – Port 80
-Default
 
-Public route table
-Private route table
+Security groups:
+
+Bastion-SG – enable access to App
+
+Example-DB – enable access to MySQL
+
+Inventory App – Enable access to App
+
+ALB SG – Port 80
 
 
 
   Steps:
+  
 
 1.	Create application load balancer
 The resources that are already created consist of 2 public subnets which will host the application. In order to satisfy the requirement of ‘Provide high availability to the website through a load balancer’, first I will create a load balancer.
+
  
 Load balancer configuration:
 Listener – port 80
 Apply to the public subnets in each AZ
 Target group – AppTG
 
+
 2.	Create an autoscaling group
+
 Next create an autoscaling group using the Example LT as a launch template. Must be in the Example VPC, select the 2 public subnets as this is where the application will be. This satisfies the requirement of providing automatic scaling that uses a launch template.
 
 Next load application load balancer DNS into browser. This will show the website. When trying to query the website, it shows a connection error. It suggests there is no connection to a database. We now need to create a database in a private subnet.
 
 3.	Create RDS database subnet group
+
 Create a subnet group in Example VPC in us-east-1a and us-east-1b selecting the two private subnets. 
 
 4.	Create RDS database 
+
 Launch inside Example VPC, choose the database subnet group just created. Add ExampleSG as a security group. Create a username and password.
 
+
 5.	Systems manager – input new credentials 
+
+
 Now that the database is created, use parameter store to store the database credentials. In the project outline we are given parameters used by the PHP application to connect to the database which will be used for this section.
 
 The following parameters are used by the PHP application to connect to the database:
