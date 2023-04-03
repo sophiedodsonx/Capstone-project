@@ -73,30 +73,34 @@ Target group – AppTG
 2.	Create an autoscaling group
 
 Next create an autoscaling group using the Example LT as a launch template. Must be in the Example VPC, select the 2 public subnets as this is where the application will be. This satisfies the requirement of providing automatic scaling that uses a launch template.
-
 Next load application load balancer DNS into browser. This will show the website. When trying to query the website, it shows a connection error. It suggests there is no connection to a database. We now need to create a database in a private subnet.
 
-3.	Create RDS database subnet group
 
+3.	Create RDS database subnet group
 Create a subnet group in Example VPC in us-east-1a and us-east-1b selecting the two private subnets. 
 
-4.	Create RDS database 
 
+4.	Create RDS database 
 Launch inside Example VPC, choose the database subnet group just created. Add ExampleSG as a security group. Create a username and password.
 
 
 5.	Systems manager – input new credentials 
-
-
 Now that the database is created, use parameter store to store the database credentials. In the project outline we are given parameters used by the PHP application to connect to the database which will be used for this section.
 
 The following parameters are used by the PHP application to connect to the database:
+
 •	/example/endpoint – (to be added when database finishes creating)
+
 •	/example/username - admin
+
 •	/example/password - database
+
 •	/example/database – exampledb
 
+
+
 6.	Connect to the bastion host via terminal
+
 Now the credentials have been inputted into parameter store, now try to connect to the bastion host. This will be used to securely connect to the application instance.
 Created file labsuser.pem and inputted the private key
 Chmod 400 labsuser.pem
@@ -104,17 +108,21 @@ SSH into the private subnet
 
 Cannot connect to the ec2 instance. This is because we need to adjust the security group to allow SSH. 
 
+
 7.	Change security groups to allow SSH
 Here I found myself stuck for ages as I was changing the wrong security group. I firstly went to change the security group for the ExampleAPP, which still did not allow me access to the instance. However, I then remembered I needed to change the Inventory-App security group to allow SSH from the bastion host SG.
 
 After I could access the instance, I checked whether the database had created and then inputted the endpoint finally into parameter store.
 
+
 8.	SSH into the new instance
 After this change, I was able to SSH into the ExampleAPP instance. I now need to test the connection to the DB by inputting mysql -u admin -p --host exampledb.ch02qdvmfust.us-east-1.rds.amazonaws.com and entering the password.
+
 
 9.	We now need to dump the Countrydatadump.sql into the RDS instance 
 Once I knew I could connect to the DB, I then needed to dump the data files into the new database.
 I was having issues doing this step – I forgot to input the database name after the DB endpoint and then inputted the name incorrectly – I used exampledb instead of ExampleDB. Case sensitive! I was able to connect after this change
+
 
 10.	Connect to DB
 To check whether the files were dumped correctly, I connected to the DB and entered ExampleDB. I then saw that the Countrydatadump file was there then went into the tables. It showed all the data was there.
