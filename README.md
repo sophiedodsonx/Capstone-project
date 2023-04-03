@@ -73,6 +73,7 @@ Apply to the public subnets in each AZ
 Target group – AppTG
 
 
+
 2.	Create an autoscaling group
 
 Next create an autoscaling group using the Example LT as a launch template. Must be in the Example VPC, select the 2 public subnets as this is where the application will be. This satisfies the requirement of providing automatic scaling that uses a launch template.
