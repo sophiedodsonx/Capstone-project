@@ -1,6 +1,7 @@
 # Capstone-project
 
 Social Research Organisation
+
 A non-profit that provides a website for social science researchers to obtain global development statistics. She stores data in a MySQL database and the data is available through a PHP website that she built. She initially published the site through a commercial hosting company that provides limited support for technical issues and security.
 
 Over the past year, Shirley’s website has grown in popularity. As a result of increased traffic, she started receiving complaints that the site is not as responsive as it used to be. She also experienced an attempted ransomware security breach. The security breach was unsuccessful, but her supervisor, Mateo Jackson, suggested that Shirley investigate new ways to host the website.
@@ -11,7 +12,9 @@ Shirley approached your team to make sure that her current design follows best p
 
 Solution requirements
 •	Provide secure hosting of the MySQL database
+
 •	Provide secure access for an administrative user
+
 •	Provide anonymous access to web users
 •	Run the website on a t2.micro EC2 instance, and provide Secure Shell (SSH) access to administrators
 •	Provide high availability to the website through a load balancer
