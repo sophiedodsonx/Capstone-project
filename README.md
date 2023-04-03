@@ -65,8 +65,11 @@ The resources that are already created consist of 2 public subnets which will ho
 
  
 Load balancer configuration:
+
 Listener – port 80
+
 Apply to the public subnets in each AZ
+
 Target group – AppTG
 
 
