@@ -2,7 +2,7 @@
 
 Social Research Organisation
 
-A non-profit that provides a website for social science researchers to obtain global development statistics. They store data in a MySQL database and the data is available through a PHP website that she built. Shirley initially published the site through a commercial hosting company that provides limited support for technical issues and security.
+A non-profit that provides a website for social science researchers to obtain global development statistics. They store data in a MySQL database and the data is available through a PHP website that Shirley built. Shirley initially published the site through a commercial hosting company that provides limited support for technical issues and security.
 
 Over the past year, Shirley’s website has grown in popularity. As a result of increased traffic, she started receiving complaints that the site is not as responsive as it used to be. She also experienced an attempted ransomware security breach. The security breach was unsuccessful, but her supervisor, Mateo Jackson, suggested that Shirley investigate new ways to host the website.
 
