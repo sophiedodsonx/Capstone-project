@@ -10,7 +10,7 @@ Shirley heard about Amazon Web Services (AWS), and initially moved her website a
 
 Shirley approached your team to make sure that her current design follows best practices. She wants to make sure that she has a robust and secure website. One of your colleagues started the process of migrating the site to a more secure implementation, but they were reassigned to another project. Your tasks are to complete the implementation, make sure that the website is secure, and confirm that the website returns data from the query page.
 
-Solution requirements:
+# Solution requirements:
 
 •	Provide secure hosting of the MySQL database
 
@@ -29,7 +29,7 @@ Solution requirements:
 
 
 
-Existing resources:
+# Existing resources:
 
 Example VPC - 
 
@@ -57,7 +57,7 @@ ALB SG – Port 80
 
 
 
-  Steps:
+  # Steps:
   
 
 1.	Create application load balancer
