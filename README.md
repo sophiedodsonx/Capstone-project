@@ -2,13 +2,11 @@
 
 Social Research Organisation
 
-A non-profit that provides a website for social science researchers to obtain global development statistics. They store data in a MySQL database and the data is available through a PHP website that Shirley built. Shirley initially published the site through a commercial hosting company that provides limited support for technical issues and security.
+I'll be taking you through how I navigated the AWS Capstone Project, letting you in on all the challenges I faced along the way.
 
-Over the past year, Shirley’s website has grown in popularity. As a result of increased traffic, she started receiving complaints that the site is not as responsive as it used to be. She also experienced an attempted ransomware security breach. The security breach was unsuccessful, but her supervisor, Mateo Jackson, suggested that Shirley investigate new ways to host the website.
+The capstone project sets the scene of a researcher from Non-profit organisation, Shirley Rodriguez, wanting to improve the performance of the Non-profit's website. It consists of a MySQL database and a PHP web application residing on a single EC2 instance in a public subnet. She is also concerned about the security of the website.
 
-Shirley heard about Amazon Web Services (AWS), and initially moved her website and database to an EC2 instance that runs in a public subnet. She also runs an instance of MySQL on the same EC2 instance.
-
-Shirley approached your team to make sure that her current design follows best practices. She wants to make sure that she has a robust and secure website. One of your colleagues started the process of migrating the site to a more secure implementation, but they were reassigned to another project. Your tasks are to complete the implementation, make sure that the website is secure, and confirm that the website returns data from the query page.
+Shirley has recently experienced an increase in popularity on her website and needs to upgrade its current set up. I'll take you along with how I went about doing this, and hope that Shirley doesn't regret asking a newbie Cloud Engineer...
 
 # Solution requirements:
 
